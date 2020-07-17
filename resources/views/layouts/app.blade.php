@@ -22,6 +22,17 @@
 <body>
     <div id="app">
         @include('layouts._includes._nav')
+        @if(Session::has('flash_message'))
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row justify-content-center alert {{ Session::get('flash_message')['class'] }}">
+                            {{ Session::get('flash_message')['msg'] }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
         <main class="py-4">
             @yield('content')
         </main>

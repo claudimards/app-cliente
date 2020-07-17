@@ -15,7 +15,7 @@
                     @endif
 
                     <p>
-                        <a class="btn btn-primary" href="#">Adicionar</a>
+                        <a class="btn btn-primary" href="{{ route('cliente.adicionar') }}">Adicionar</a>
                     </p>
                     
                     <table class="table table-bordered">

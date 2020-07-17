@@ -20,4 +20,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/cliente', ['uses'=>'ClienteController@index', 'as'=>'cliente.index'])->name('home');
+Route::get('/cliente', ['uses'=>'ClienteController@index', 'as'=>'cliente.index']);
+
+Route::get('/adicionar', ['uses'=>'ClienteController@adicionar', 'as'=>'cliente.adicionar']);
+
+Route::post('/salvar',['uses'=>'ClienteController@salvar', 'as'=>'cliente.salvar']);
