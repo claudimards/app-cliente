@@ -37,7 +37,9 @@
                                 <td>{{ $cliente->endereco }}</td>
                                 <td>
                                     <a class="btn btn-info" href="{{ route('cliente.editar', $cliente->id) }}">Editar</a>
-                                    <a class="btn btn-danger" href="#">Deletar</a>
+                                    <a class="btn btn-danger" href="javascript:(confirm('Deletar esse registro?') ?
+                                        window.location.href='{{ route('cliente.deletar', $cliente->id) }}':
+                                        window.location.href='{{ route('cliente.index') }}' )">Deletar</a>
                                 </td>
                             </tr>
                             @endforeach
