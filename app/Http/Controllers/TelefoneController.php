@@ -33,4 +33,45 @@ class TelefoneController extends Controller
         return redirect()->route('cliente.detalhe', $id);
 
     }
+
+    public function editar($id)
+    {
+        $telefone = \App\Telefone::find($id);
+
+        if(!$telefone)
+        {
+            \Session::flash('flash_message', [
+                'msg'=>'Telefone inexistente',
+                'class'=>'alert-danger'
+            ]);
+            return redirect()->route('cliente.detalhe', $telefone->cliente->id);
+        }
+        return view('telefone.editar', compact('telefone'));
+    }
+
+    public function atualizar(Request $request, $id)
+    {
+        $telefone = \App\Telefone::find($id);
+        $telefone->update($request->all());
+
+        \Session::flash('flash_message', [
+            'msg'=>'Telefone atualizado com Sucesso!',
+            'class'=>'alert-success'
+        ]);
+
+        return redirect()->route('cliente.detalhe', $telefone->cliente->id);
+    }
+
+    public function deletar($id)
+    {
+        $telefone = \App\Telefone::find($id);
+        $telefone->delete();
+
+        \Session::flash('flash_message', [
+            'msg'=>'Telefone deletado com Sucesso!',
+            'class'=>'alert-success'
+        ]);
+
+        return redirect()->route('cliente.detalhe', $telefone->cliente->id);
+    }
 }

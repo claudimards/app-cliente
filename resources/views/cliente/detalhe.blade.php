@@ -33,10 +33,10 @@
                                 <td>{{ $telefone->titulo }}</td>
                                 <td>{{ $telefone->telefone }}</td>
                                 <td>
-                                    <a class="btn btn-info" href="#">Editar</a>
+                                    <a class="btn btn-info" href="{{ route('telefone.editar', $telefone->id) }}">Editar</a>
                                     <a class="btn btn-danger" href="javascript:(confirm('Deletar esse registro?') ?
-                                        window.location.href='#':
-                                        window.location.href='#' )">Deletar</a>
+                                        window.location.href='{{ route('telefone.deletar', $telefone->id) }}':
+                                        window.location.href='{{ route('cliente.detalhe', $cliente->id) }}' )">Deletar</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -45,6 +45,7 @@
 
                     <p>
                         <a class="btn btn-primary" href="{{ route('telefone.adicionar', $cliente->id) }}">Adicionar Telefone</a>
+                        <a class="btn btn-danger" href="{{ route('cliente.index') }}">Voltar</a>
                     </p>
                   
                 </div>

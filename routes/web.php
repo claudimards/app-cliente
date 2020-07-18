@@ -30,3 +30,6 @@ Route::get('/cliente/detalhe/{id}', ['uses'=>'ClienteController@detalhe', 'as'=>
 
 Route::get('/telefone/adicionar/{id}', ['uses'=>'TelefoneController@adicionar', 'as'=>'telefone.adicionar']);
 Route::post('/telefone/salvar/{id}', ['uses'=>'TelefoneController@salvar', 'as'=>'telefone.salvar']);
+Route::get('/telefone/editar/{id}', ['uses'=>'TelefoneController@editar', 'as'=>'telefone.editar']);
+Route::put('/telefone/atualizar/{id}', ['uses'=>'TelefoneController@atualizar', 'as'=>'telefone.atualizar']);
+Route::get('/telefone/deletar/{id}', ['uses'=>'TelefoneController@deletar', 'as'=>'telefone.deletar']);
