@@ -83,4 +83,10 @@ class ClienteController extends Controller
 
         return redirect()->route('cliente.index');
     }
+
+    public function detalhe($id)
+    {
+        $cliente = \App\Cliente::find($id);
+        return view('cliente.detalhe', compact('cliente'));
+    }   
 }
