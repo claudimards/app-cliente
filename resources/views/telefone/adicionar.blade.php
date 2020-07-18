@@ -25,6 +25,7 @@
                             <input type="texte" name="telefone" class="form-control" placeholder="Número de telefone">
                         </div>
                         <button class="btn btn-info">Adicionar</button>
+                        <a class="btn btn-danger" href="{{ route('cliente.detalhe', $cliente->id) }}">Cancelar</a>
                     </form>
                 </div>
             </div>

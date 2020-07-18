@@ -27,6 +27,7 @@
                             <input type="text" name="endereco" class="form-control" placeholder="Endereço do cliente">
                         </div>
                         <button class="btn btn-info">Adicionar</button>
+                        <a class="btn btn-danger" href="{{ route('cliente.index') }}">Cancelar</a>
                     </form>
                 </div>
             </div>
