@@ -16,13 +16,23 @@
                 <div class="panel panel-body">
                     <form action="{{ route('telefone.salvar', $cliente->id) }}" method="post">
                         {{ csrf_field() }}
-                        <div class="form-group">
+                        <div class="form-group {{ $errors->has('titulo') ? 'has-error' : '' }}">
                             <label for="titulo">Título</label>
                             <input type="text" name="titulo" class="form-control" placeholder="Título do telefone">
+                            @if( $errors->has('titulo') )
+                            <span class="help-block">
+                                <strong>{{ $errors->first('titulo') }}</strong>
+                            </span>
+                            @endif
                         </div>
-                        <div class="form-group">
+                        <div class="form-group {{ $errors->has('telefone') ? 'has-error' : '' }}">
                             <label for="telefone">Número</label>
                             <input type="texte" name="telefone" class="form-control" placeholder="Número de telefone">
+                            @if( $errors->has('telefone') )
+                            <span class="help-block">
+                                <strong>{{ $errors->first('telefone') }}</strong>
+                            </span>
+                            @endif
                         </div>
                         <button class="btn btn-info">Adicionar</button>
                         <a class="btn btn-danger" href="{{ route('cliente.detalhe', $cliente->id) }}">Cancelar</a>

@@ -17,17 +17,27 @@
                     <form action="{{ route('telefone.atualizar', $telefone->id) }}" method="post">
                         {{ csrf_field() }}
                         <input type="hidden" name="_method" value="put">
-                        <div class="form-group">
+                        <div class="form-group {{ $errors->has('titulo') ? 'has-error' : '' }}">
                             <label for="titulo">Título</label>
                             <input type="text" name="titulo" class="form-control" placeholder="Título do telefone"
                                 value="{{ $telefone->titulo }}"
                             >
+                            @if( $errors->has('titulo') )
+                            <span class="help-block">
+                                <strong>{{ $errors->first('titulo') }}</strong>
+                            </span>
+                            @endif
                         </div>
-                        <div class="form-group">
+                        <div class="form-group {{ $errors->has('telefone') ? 'has-error' : '' }}">
                             <label for="telefone">Número</label>
                             <input type="texte" name="telefone" class="form-control" placeholder="Número de telefone"
                                 value="{{ $telefone->telefone }}"
                             >
+                            @if( $errors->has('telefone') )
+                            <span class="help-block">
+                                <strong>{{ $errors->first('telefone') }}</strong>
+                            </span>
+                            @endif
                         </div>
                         <button class="btn btn-info">Atualizar</button>
                         <a class="btn btn-danger" href="{{ route('cliente.detalhe', $telefone->cliente->id) }}">Cancelar</a>

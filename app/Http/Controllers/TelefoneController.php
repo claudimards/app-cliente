@@ -17,7 +17,7 @@ class TelefoneController extends Controller
         return view('telefone.adicionar', compact('cliente'));
     }
 
-    public function salvar(Request $request, $id)
+    public function salvar(\App\Http\Requests\TelefoneRequest $request, $id)
     {   
         $telefone = new \App\Telefone;
         $telefone->titulo = $request->input('titulo');
@@ -49,7 +49,7 @@ class TelefoneController extends Controller
         return view('telefone.editar', compact('telefone'));
     }
 
-    public function atualizar(Request $request, $id)
+    public function atualizar(\App\Http\Requests\TelefoneRequest $request, $id)
     {
         $telefone = \App\Telefone::find($id);
         $telefone->update($request->all());
